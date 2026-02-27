@@ -65,7 +65,7 @@ const SubmitPage = () => {
         setSubmitting(true);
         setSubmitError('');
         try {
-            const response = await fetch('http://localhost:5000/api/submit', {
+            const response = await fetch('/api/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

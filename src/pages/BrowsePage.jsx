@@ -24,7 +24,7 @@ const BrowsePage = () => {
     const [loadingSubmissions, setLoadingSubmissions] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/submit')
+        fetch('/api/submit')
             .then(res => res.json())
             .then(data => {
                 if (data.success && data.data) {

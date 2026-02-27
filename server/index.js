@@ -29,26 +29,31 @@ app.get('/', (req, res) => {
     res.json({ message: 'CrptoSuggest API is running ✅', time: new Date() });
 });
 
-// Connect to MongoDB and start server
-mongoose.connect(process.env.MONGODB_URI, {
-    serverSelectionTimeoutMS: 10000,
-    connectTimeoutMS: 10000,
-})
-    .then(() => {
-        console.log('✅ Connected to MongoDB Atlas');
-        app.listen(PORT, () => {
-            console.log(`🚀 Server running on http://localhost:${PORT}`);
+// Connect to MongoDB
+const connectDB = async () => {
+    try {
+        if (mongoose.connection.readyState >= 1) return;
+        await mongoose.connect(process.env.MONGODB_URI, {
+            serverSelectionTimeoutMS: 10000,
+            connectTimeoutMS: 10000,
         });
-    })
-    .catch((err) => {
-        console.error('\n❌ MongoDB connection failed!');
-        console.error('Error:', err.message);
-        if (err.message.includes('ETIMEDOUT') || err.message.includes('querySrv')) {
-            console.error('\n⚠️  DNS/Network issue detected. Please try:');
-            console.error('  1. Go to cloud.mongodb.com → Security → Network Access');
-            console.error('  2. Add IP: 0.0.0.0/0 (Allow all)');
-            console.error('  3. Try changing DNS to 8.8.8.8 (Google DNS) in your network settings');
-            console.error('  4. If on a VPN or firewall, try disabling it temporarily');
-        }
-        process.exit(1);
+        console.log('✅ Connected to MongoDB Atlas');
+    } catch (err) {
+        console.error('\n❌ MongoDB connection failed!', err.message);
+    }
+};
+
+// Middleware to ensure DB connection
+app.use(async (req, res, next) => {
+    await connectDB();
+    next();
+});
+
+// Start server if run directly
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
     });
+}
+
+module.exports = app;
