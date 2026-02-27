@@ -47,7 +47,11 @@ router.post('/', async (req, res) => {
 
     } catch (error) {
         console.error('Submission error:', error);
-        res.status(500).json({ success: false, message: 'Server error. Please try again.' });
+        res.status(500).json({
+            success: false,
+            message: 'Server error. Please try again.',
+            error: error.message
+        });
     }
 });
 
