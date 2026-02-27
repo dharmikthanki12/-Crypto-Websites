@@ -28,7 +28,12 @@ app.get('/api', (req, res) => {
 const connectDB = async () => {
     if (mongoose.connection.readyState >= 1) return;
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
+        const uri = process.env.MONGODB_URI;
+        if (!uri) {
+            console.error('❌ ERROR: MONGODB_URI environment variable is MISSING in Vercel settings.');
+            return;
+        }
+        await mongoose.connect(uri);
         console.log('✅ Connected to MongoDB Atlas');
     } catch (err) {
         console.error('❌ MongoDB connection failed!', err.message);
