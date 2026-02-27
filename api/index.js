@@ -36,7 +36,7 @@ const connectDB = async () => {
 };
 
 // Routes
-const submitRoute = require('../server/routes/submit');
+const submitRoute = require('../backend/routes/submit');
 
 // Wrap the route to ensure DB is connected BEFORE processing
 app.use('/api/submit', async (req, res, next) => {
