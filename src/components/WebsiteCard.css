@@ -1,0 +1,189 @@
+/* ============================
+   WebsiteCard — matches reference crpto-suggest.vercel.app design
+   ============================ */
+
+.wc-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #F3F4F6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.wc-card:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+}
+
+/* ── Body ─────────────────── */
+.wc-body {
+    padding: 20px 20px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Header row ───────────── */
+.wc-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.wc-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+
+.wc-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.wc-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 3px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wc-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.wc-reviews {
+    font-size: 12px;
+    color: #9CA3AF;
+    font-weight: 500;
+}
+
+.wc-heart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    margin-top: 2px;
+}
+
+.wc-heart:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* ── Description ──────────── */
+.wc-desc {
+    font-size: 13.5px;
+    color: #6B7280;
+    line-height: 1.55;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    flex: 1;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* ── Tags / Badges ────────── */
+.wc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.wc-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+}
+
+.wc-badge-category {
+    background-color: rgba(31, 143, 229, 0.08);
+    color: #1F8FE5;
+    border: 1px solid rgba(31, 143, 229, 0.18);
+}
+
+.wc-badge-featured {
+    background-color: rgba(249, 115, 22, 0.08);
+    color: #EA580C;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+/* ── Footer ───────────────── */
+.wc-footer {
+    display: flex;
+    border-top: 1px solid #F3F4F6;
+    overflow: hidden;
+    border-radius: 0 0 16px 16px;
+}
+
+.wc-btn-compare,
+.wc-btn-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Compare — ghost/outline style */
+.wc-btn-compare {
+    background: #ffffff;
+    color: #374151;
+    border-right: 1px solid #F3F4F6;
+}
+
+.wc-btn-compare:hover {
+    background: #F9FAFB;
+    color: #1F8FE5;
+}
+
+/* Details — dark filled */
+.wc-btn-details {
+    background: #111827;
+    color: #ffffff;
+}
+
+.wc-btn-details:hover {
+    background: #1F8FE5;
+}

@@ -1,0 +1,262 @@
+/* ========================================
+   NEWSLETTER — Full-Width Desktop Section
+   ======================================== */
+
+.newsletter {
+    width: 100%;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a56db 0%, #1e3a8a 60%, #1e40af 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* ── Animated floating orbs ──────────────── */
+.newsletter::before,
+.newsletter::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: floatOrb 8s ease-in-out infinite alternate;
+}
+
+.newsletter::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+    top: -180px;
+    left: -120px;
+    animation-duration: 10s;
+}
+
+.newsletter::after {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.10) 0%, transparent 70%);
+    bottom: -140px;
+    right: -80px;
+    animation-duration: 13s;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes floatOrb {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, 20px) scale(1.06);
+    }
+}
+
+/* ── Extra decorative mid-orb ─────────────── */
+.newsletter-inner::before {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, transparent 70%);
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* ── Subtle dot-grid texture overlay ───────── */
+.newsletter-inner {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    z-index: 1;
+}
+
+.newsletter-inner::after {
+    content: '';
+    position: absolute;
+    inset: -100px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Badge ───────────────────────────────── */
+.newsletter-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 28px;
+    backdrop-filter: blur(6px);
+    position: relative;
+    z-index: 2;
+    animation: fadeSlideDown 0.6s ease both;
+}
+
+/* ── Title ───────────────────────────────── */
+.newsletter-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 18px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    position: relative;
+    z-index: 2;
+    animation: fadeSlideDown 0.6s 0.1s ease both;
+}
+
+/* ── Subtitle ─────────────────────────────── */
+.newsletter-subtitle {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 580px;
+    margin: 0 auto 44px;
+    line-height: 1.65;
+    position: relative;
+    z-index: 2;
+    animation: fadeSlideDown 0.6s 0.2s ease both;
+}
+
+/* ── Form ─────────────────────────────────── */
+.newsletter-form {
+    max-width: 520px;
+    margin: 0 auto 36px;
+    position: relative;
+    z-index: 2;
+    animation: fadeSlideDown 0.6s 0.3s ease both;
+}
+
+.input-group {
+    display: flex;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 6px 6px 6px 20px;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.20);
+    transition: box-shadow 0.3s ease;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28), 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.input-group input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px 0;
+    font-family: inherit;
+    font-size: 15px;
+    color: #111827;
+    outline: none;
+    min-width: 0;
+}
+
+.input-group input::placeholder {
+    color: #9CA3AF;
+}
+
+.btn-subscribe {
+    background: #2563eb;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-subscribe:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-subscribe:active {
+    transform: translateY(0);
+}
+
+/* ── Feature pills ────────────────────────── */
+.newsletter-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    animation: fadeSlideDown 0.6s 0.4s ease both;
+}
+
+.newsletter-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.newsletter-features li:hover {
+    color: #ffffff;
+}
+
+.newsletter-features svg {
+    color: #34d399;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 4px rgba(52, 211, 153, 0.5));
+}
+
+/* ── Entry animations ─────────────────────── */
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 600px) {
+    .newsletter {
+        padding: 72px 0;
+    }
+
+    .input-group {
+        flex-direction: column;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .input-group input {
+        padding: 10px 12px;
+    }
+
+    .btn-subscribe {
+        width: 100%;
+        text-align: center;
+    }
+
+    .newsletter-features {
+        gap: 20px;
+    }
+}

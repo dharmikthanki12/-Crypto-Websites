@@ -1,0 +1,230 @@
+.categories-page {
+    padding: 80px 0 120px;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.categories-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 24px;
+}
+
+.breadcrumb a {
+    color: #1F8FE5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #0B3C5D;
+}
+
+.categories-header .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(31, 143, 229, 0.08);
+    color: #1F8FE5;
+    border: 1px solid rgba(31, 143, 229, 0.2);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.categories-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #1F8FE5, #4FC3F7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.categories-subtitle {
+    font-size: 18px;
+    color: #6B7280;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+/* Search Bar */
+.categories-search {
+    max-width: 600px;
+    margin: 0 auto 80px;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.search-input-group:focus-within {
+    border-color: #1F8FE5;
+    box-shadow: 0 4px 24px rgba(31, 143, 229, 0.15);
+}
+
+.search-input-group svg {
+    color: #9CA3AF;
+}
+
+.search-input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    color: #111827;
+    font-weight: 500;
+    background: transparent;
+}
+
+/* Grid Layout */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* Category Card */
+.category-card {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    border: 1px solid #E5E7EB;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(31, 143, 229, 0.3);
+    box-shadow: 0 20px 40px rgba(31, 143, 229, 0.10);
+}
+
+.category-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: transform 0.4s ease;
+}
+
+.category-card:hover .category-icon-wrapper {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.category-icon-emoji {
+    font-size: 32px;
+}
+
+.category-badge {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B7280;
+    background: #F9FAFB;
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+.category-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.category-card-desc {
+    font-size: 15px;
+    color: #6B7280;
+    line-height: 1.65;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.category-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7280;
+    background: #F9FAFB;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #F1F5F9;
+}
+
+.category-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid #F1F5F9;
+    color: #1F8FE5;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.category-footer svg {
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-footer svg {
+    transform: translateX(6px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-title {
+        font-size: 36px;
+    }
+}
